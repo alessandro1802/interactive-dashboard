@@ -1,6 +1,8 @@
 library(shiny)
 library(shinydashboard)
+library(shinythemes)
 library(ggplot2)
+library(DT)
 
 # vag.csv
 vag <- read.csv(file = 'data/vag.csv')

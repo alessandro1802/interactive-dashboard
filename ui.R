@@ -1,6 +1,8 @@
 library(shiny)
 library(shinydashboard)
 library(shinythemes)
+library(ggplot2)
+library(DT)
 
 audi <- read.csv(file = 'data/audi.csv')
 
