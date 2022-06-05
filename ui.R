@@ -9,13 +9,16 @@
 
 library(shiny)
 library(shinydashboard)
+library(shinythemes)
 
 # Define UI for application that draws a histogram
 shinyUI(
   fluidPage(
-      # Application title
-      titlePanel("Title"),
-    
+    # Theme
+    theme = shinytheme("superhero"),
+    # Application title
+    titlePanel("Title"),
+    # Tab panels
     tabsetPanel(
       # Tab 1
       tabPanel("tab 1", 
