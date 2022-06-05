@@ -5,3 +5,9 @@ This is an interactive dashboard:
 - interesting facts
 - statistics 
 - comparisons
+
+### [Live Demo](https://alessandro1802.shinyapps.io/vag-group)
+
+```diff
+- The project is not finished!
+```
