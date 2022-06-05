@@ -17,11 +17,22 @@ shinyUI(
     # Theme
     theme = shinytheme("journal"),
     # Application title
-    titlePanel("Title"),
+    titlePanel(
+      div(
+        "Title",
+        # Logo
+        img(src="logo.png", 
+              align = "right", 
+              width="30%", 
+              height="30%", 
+              style="vertical-align: top;"
+        )
+      )
+    ),
     # Tab panels
     tabsetPanel(
       # Tab 1
-      tabPanel("tab 1", 
+      tabPanel("Main", 
                sliderInput("bins", 
                            "Number of bins:", 
                            min = 1, 
