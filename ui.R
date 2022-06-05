@@ -15,7 +15,7 @@ library(shinythemes)
 shinyUI(
   fluidPage(
     # Theme
-    theme = shinytheme("superhero"),
+    theme = shinytheme("journal"),
     # Application title
     titlePanel("Title"),
     # Tab panels
