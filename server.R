@@ -2,13 +2,16 @@ library(shiny)
 library(shinydashboard)
 library(ggplot2)
 
-# Load vag.csv
+# vag.csv
 vag <- read.csv(file = 'data/vag.csv')
 vag$brand <- factor(vag$brand, levels = vag$brand)
 vag$category <- factor(vag$category, levels = c("Volume", "Premium", "Sport"))
 
+# audi.csv
+audi <- read.csv(file = 'data/audi.csv')
+
 shinyServer(function(input, output, session) {
-      ### Main tab
+      ### VAG barplot
       global <- reactiveValues(
         toHighlight = rep(FALSE, length(vag$brand)), 
         selectedBarDesc = "(select a Brand by clicking on its bar)"
@@ -52,7 +55,21 @@ shinyServer(function(input, output, session) {
         paste(strong("Description: "), p(), global$selectedBarDesc)
       })
       
-      ### Tab 7
+      ### Audi table
+      output$audi <- DT::renderDataTable({
+        DT::datatable({
+          data <- audi
+          if (input$audiModel != "All") {
+            data <- data[data$model == input$audiModel,]
+          }
+          if (input$audiYear != "All") {
+            data <- data[data$year == input$audiYear,]
+          }
+          data
+        })
+      })
+      
+      ### Test
       # generate bins based on input$bins from ui.R
       output$distPlot <- renderPlot({
         x    <- faithful[, 2]

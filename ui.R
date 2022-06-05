@@ -2,6 +2,8 @@ library(shiny)
 library(shinydashboard)
 library(shinythemes)
 
+audi <- read.csv(file = 'data/audi.csv')
+
 shinyUI(
   fluidPage(
     # Theme
@@ -67,8 +69,31 @@ shinyUI(
       ),
       
       # Tab 3
-      tabPanel("tab",
-               "contents"
+      tabPanel("Audi",
+               p("
+                  Here you can compare Audi cars by many attributes.
+                 "), 
+               p("
+                  The prices are in US dollars ($), while the engine sizes are in Liters.
+                 "), 
+               sidebarPanel(
+                 selectInput(
+                   "audiModel",
+                   "Model:",
+                   choices=c("All", unique(as.character(audi$model)))
+                 ),
+                 selectInput(
+                   "audiYear",
+                   "Year:",
+                   choices=c("All", unique(as.character(audi$year)))
+                 ),
+                 hr(),
+                 helpText("Some models were not produced in some years")
+               ),
+
+               mainPanel(
+                 dataTableOutput("audi")
+               )
       ), 
       
       # Tab 4
