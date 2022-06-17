@@ -7,7 +7,3 @@ This is an interactive dashboard:
 - comparisons
 
 ### [Live Demo](https://alessandro1802.shinyapps.io/vag-group)
-
-```diff
-- The project is not finished!
-```
